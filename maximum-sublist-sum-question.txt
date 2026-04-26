@@ -1,0 +1,4 @@
+Write the function: maximum_sublist_sum(L)
+
+
+that calculates the maximum sum of all possible sublists of L (which is a list of integers). Your code needs to run in O(n2) for full marks.
