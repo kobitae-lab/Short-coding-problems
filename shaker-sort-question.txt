@@ -1,0 +1,43 @@
+One alternative to single-direction comparison sorting algorithms such as Selection Sort and Insertion Sort is the Shaker Sort algorithm. Shaker Sort repeatedly sweeps through the list in both directions to arrange the elements in increasing order. The algorithm works as follows:
+
+Perform a forward pass (left to right) through the list, comparing adjacent elements and swapping them if the left element is greater than the right element (that is, if they are not in increasing order). After this pass, the largest element will be in its final position at the end of the list.
+Then perform a backward pass (right to left), again comparing adjacent elements and swapping when the left element is greater than the right element. After this pass, the smallest element will be in its final position at the beginning of the list.
+After each full forward and backward pass, one element is fixed at the end of the list and one element is fixed at the beginning. As a result, the section of the list that still needs to be sorted becomes smaller from both ends.
+Repeat this process until a full forward and backward pass occurs with no swaps, indicating that the list is sorted.
+
+
+Write a function: shaker_sort(L)
+
+
+that consumes a list of integers L, returns None, and performs Shaker Sort on the list by mutating L so that it is in sorted order by the end. Your implementation must follow the Shaker Sort algorithm described above.
+
+In addition, your function must print the list after each forward pass and each backward pass using the exact format:
+
+Forward Pass k: [...]
+Backward Pass k: [...]
+where k is the pass number starting at 1 and [...] is the mutated L at that particular point.
+
+Note: If the list is empty or contains only one element, it is already sorted, and no printing should occur.
+
+Samples:
+
+L = [] 
+shaker_sort(L) => None
+The list L is not mutated, and nothing is printed.
+
+L = [-10, 20, 234, 556]
+shaker_sort(L) => None
+The list L is not mutated, and the following is printed:
+
+Forward Pass 1: [-10, 20, 234, 556]
+Backward Pass 1: [-10, 20, 234, 556]
+L = [6, 3, 8, 2, 7, 4, 5]
+shaker_sort(L) => None
+The list L is mutated to [2, 3, 4, 5, 6, 7, 8] and the following is printed:
+
+Forward Pass 1: [3, 6, 2, 7, 4, 5, 8]
+Backward Pass 1: [2, 3, 6, 4, 7, 5, 8]
+Forward Pass 2: [2, 3, 4, 6, 5, 7, 8]
+Backward Pass 2: [2, 3, 4, 5, 6, 7, 8]
+Forward Pass 3: [2, 3, 4, 5, 6, 7, 8] 
+Backward Pass 3: [2, 3, 4, 5, 6, 7, 8]
