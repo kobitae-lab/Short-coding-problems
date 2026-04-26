@@ -1,0 +1,17 @@
+Write a function: merge_intervals(L)
+
+
+which consumes a list of lists L, where each inner list is a 2-element list of natural numbers representing an interval in the form of [start, end], and start <= end. The function returns a new list of intervals such that:
+
+Intervals that overlap in L are combined into a single interval.
+The resulting intervals are sorted in ascending order of start times.
+For full marks, your solution should run in  time, where  equals len(L).
+
+Also, note that L should not be mutated.
+
+Samples:
+
+L = [[1, 3], [5, 7], [2, 4], [8, 10]]
+merge_intervals(L) => [[1, 4], [5, 7], [8, 10]]
+L = [[9, 11], [10, 12], [13, 14], [11, 13]]
+merge_intervals(L) => [[9, 14]]
