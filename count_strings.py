@@ -32,11 +32,12 @@ def count_strings(L, prefix):
     
   while left <= right:
     mid = (left + right) // 2
+    mid_prefix = L[mid][:length_p] if len(L[mid]) >= length_p else L[mid]
     
-    if L[mid][:length_p] == prefix and (mid == 0 or L[mid-1][:length_p] != prefix):
+    if mid_prefix == prefix and (mid == 0 or L[mid-1][:length_p] != prefix):
       first_index = mid
       left = right + 1
-    elif L[mid][:length_p] < prefix:
+    elif mid_prefix < prefix:
       left = mid + 1
     else:
       right = mid - 1
@@ -45,10 +46,12 @@ def count_strings(L, prefix):
   right = len(L) - 1
   while left <= right:
     mid = (left + right) // 2
-    if L[mid][:length_p] == prefix and (mid == len(L)-1 or L[mid+1][:length_p] != prefix):
+    mid_prefix = L[mid][:length_p] if len(L[mid]) >= length_p else L[mid]
+
+    if mid_prefix == prefix and (mid == len(L)-1 or L[mid+1][:length_p] != prefix):
       last_index = mid
       left = right + 1
-    elif L[mid][:length_p] < prefix:
+    elif mid_prefix < prefix:
       left = mid + 1
     else:
       right = mid - 1
