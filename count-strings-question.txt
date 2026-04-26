@@ -1,0 +1,14 @@
+Write a function: count_strings(L, prefix)
+
+
+which consumes a list of strings L sorted alphabetically, where all strings consist of lowercase English letters, and a lowercase string prefix. The function returns the number of strings in L that start with prefix.
+
+Your solution must run in  time, where  equals len(L). No marks will be given to code that does not meet this running time.
+
+Samples:
+
+L = ["apart", "apple", "apply", "banana", "berry"]
+count_strings(L, "app") => 2
+count_strings(L, "ap") => 3
+count_strings(L, "c") => 0
+count_strings(L, "") => 5
