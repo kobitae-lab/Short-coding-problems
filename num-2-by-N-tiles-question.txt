@@ -1,0 +1,11 @@
+For example, with the given pieces there is only 1 way to tile a 2x1 grid and so  num_2_by_N_tiles(1) => 1
+
+Similarly, for a 2x2 grid there are 3 ways (a single square, two horizontal bars, two vertical bars) and so num_2_by_N_tiles(2) => 3
+
+Note that there zero ways to tile a 2x0 grid.
+
+
+Write the function: num_2_by_N_tiles(N)
+
+
+that calculates the number of unique ways to tile a 2 x N grid for any natural number N using only the three configurations mentioned above. Your solution must run in O(n) time. 
