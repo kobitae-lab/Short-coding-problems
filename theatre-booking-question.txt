@@ -1,0 +1,50 @@
+Write the function: process_bookings(cinema,reqs) 
+
+
+which consumes cinema (of type Theatre) and reqs (of type (listof Request)) and
+
+updates/mutates cinema for each valid Request.
+A Request is valid if the RowLabel exists in cinema, the seat index is within bounds of that row, and the seat is currently False (i.e. not taken).
+If a Request is valid, change the status from False to True.
+If a Request is invalid (row not found, seat out of bounds, or seat already taken), do nothing to the state and count it as a rejection.
+When all updates are done, print the updated Theatre (see below for printing rules).
+Return the number of Requests that were rejected.
+The format of the printed Theatre should match the description below:
+
+Each line starts with "Row " followed by the RowLabel and a colon and a space (e.g., "Row A: ").
+If there are no seats in that row then nothing additional is printed.
+If there are seats then each seat is printed as 3 characters followed by a single space except if it's the final seat where no space is printed.
+An empty seat False prints as [_].
+An occupied seat True prints as [X].
+For example printing the test_theatre above would yield
+
+Row A: [_] [_] [_]
+Row B: [_] [X] [X] [_] [_]
+Row C: [X] [_] [_] [X] [X]
+Row D:
+Row E: [_]
+Given the list of Requests requests = ['A1', 'C5','B6','E1', 'A1','G3'] we see that, for the test_theatre above
+
+# 'A1' is valid.
+# 'C5' is invalid (spot is taken)
+# 'B6' is invalid (out of bounds)
+# 'E1' is valid
+# 'A1' is invalid (seat now taken)
+# 'G3' is invalid (no row G exists)
+Thus we would have the following result
+
+process_bookings(test_theatre, requests) => 4 # returns 4 rejections
+and prints...
+Row A: [X] [_] [_]
+Row B: [_] [X] [X] [_] [_]
+Row C: [X] [_] [_] [X] [X]
+Row D:
+Row E: [X]
+and the state of test_theatre becomes:
+test_theatre = [
+['A', [True, False, False]],
+['B', [False, True, True, False, False]],
+['C', [True, False ,False, True, True]],
+['D', []],
+['E', [True]]
+]
